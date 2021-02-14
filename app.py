@@ -5,7 +5,7 @@ from argparse import ArgumentParser
 import requests
 
 app = Flask(__name__)
-# CORS(app)
+CORS(app)
 
 
 @app.route('/', methods=['GET'])
@@ -15,7 +15,7 @@ def chian():
     for dictBlock in dictChain:
         dictBlock['transactions'] = [tx.__dict__ for tx in dictBlock['transactions']]
     return jsonify(dictChain), 200
-
+pass
 
 @app.route('/mine', methods=['POST'])
 def mine():
